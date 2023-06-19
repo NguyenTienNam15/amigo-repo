@@ -4,3 +4,5 @@ baseurl=http://mirror.centos.org/centos/7/extras/x86_64
 enabled=1
 gpgcheck=1
 gpgkey=http://centos.org/keys/RPM-GPG-KEY-CentOS-7
+
+yum -y install slirp4netns fuse-overlayfs container-selinux
