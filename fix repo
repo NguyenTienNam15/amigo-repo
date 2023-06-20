@@ -9,4 +9,4 @@ gpgkey=http://centos.org/keys/RPM-GPG-KEY-CentOS-7
 
 yum -y install slirp4netns fuse-overlayfs container-selinux
 
-kubectl -n dynatrace create secret generic dynakube --from-literal="apiToken=<API_TOKEN>" --from-literal="dataIngestToken=<DATA_INGEST_TOKEN>"
+kubectl -n dynatrace create secret generic dynakube --from-literal="apiToken=<API_TOKEN>"
