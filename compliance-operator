@@ -1,2 +1,17 @@
 oc get project | grep openshift-compliance; oc get pb -n openshift-compliance; oc get csv -n openshift-compliace; oc get pods -n openshift-compliance; oc get ssb -n openshift-compliance;oc get compliancescan
 oc patch -n <project-name> <object-kind>/<object-name> --type=merge -p '{"metadata": {"finalizers":null}}'
+
+
+
+# oc get project <project> -o json |grep -v "kubernetes" > <project>.json
+# oc get project ta -o json |grep -v "kubernetes" > ta.json
+
+apiVersion": "project.openshift.io/v1"     --- before
+"kind": "Project"
+"apiVersion": "v1"                         --- after
+"kind": "Namespace"
+
+oc proxy --port=8080 & curl -k -H "Content-Type: application/json" -X PUT --data-binary @<project>.json localhost:8080/api/v1/namespaces/<project>/finalize
+& curl -k -H "Content-Type: application/json" -X PUT --data-binary @ta.json localhost:8080/api/v1/namespaces/ta/finalize
+
+
