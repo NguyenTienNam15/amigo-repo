@@ -1,0 +1,1 @@
+oc get project | grep openshift-compliance; oc get pb -n openshift-compliance; oc get csv -n openshift-compliace; oc get pods -n openshift-compliance; oc get ssb -n openshift-compliance;oc get compliancescan
